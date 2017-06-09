@@ -1,0 +1,6 @@
+######
+## nosoconociometro routes
+
+GET     /                                 org.nosoconociometro.controllers.Application.index
+
+GET     /webjars/*file                    controllers.WebJarAssets.at(file)

@@ -18,7 +18,6 @@
             </div>
         </nav>
         <div class="container">
-            <form class="form-horizontal" method="post" action="/survey/1">
             <div class="row">
                 <div class="col-md-9" role="main">
                     <div class="bs-docs-section">
@@ -27,235 +26,14 @@
                                 @question(1, "1 - ¿En qué medida las consecuencias de la Diabetes afecta mi vida?", "0 no me afecta y 10 me afecta mucho")
                                 @question(2, "2 - ¿Cuánto tiempo cree que duran las consecuencias de la Diabetes?", "0 temporalmente y 10 dura para siempre")
                                 @question(3, "3 - ¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)?", "0 sería un control escaso y 10 máximo control")
+                                @question(4, "4 - ¿Cree que la dieta, ejercicio físico, tratamiento con pastillas o pinchado son útiles para controlar la diabetes?", "0 no cree que sea útil y 10 si cree que es útil")
+                                @question(5, "5 - ¿Nota molestias o síntomas relacionados directamente con la Diabetes?", "0 ningún síntoma en la actualidad y 10 todos los días tengo síntomas (por complicaciones o no)")
+                                @question(6, "6 - ¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo?", "0 la conozco muy poco o nada y 10 la conozco bien")
+                                @question(7, "7 - ¿Tener Diabetes me afecta emocionalmente? Me preocupa", "0 no me afecta nada y 10 me afecta mucho")
                             </fieldset>
 
                             <input type="submit" class="btn btn-primary btn-lg" style="margin-left: 100px;" role="button" value="Enviar">
                         </form>
-
-                                <!-- Tercera pregunta -->
-                            <div class="bg-info text-center">
-                                <div class="card-block">
-                                    <blockquote class="card-blockquote">
-                                        <p>3 - ¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)?</p>
-                                        <div class="form-group">
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-0" value=0 name="optradio">0
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-1" value=1  name="optradio">1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-2" value=2  name="optradio">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-3" value=3  name="optradio">3
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-4" value=4  name="optradio">4
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-5" value=5  name="optradio">5
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-6" value=6  name="optradio">6
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-7" value=7  name="optradio">7
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-8" value=8  name="optradio">8
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-9" value=9  name="optradio">9
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p3-10" value=10  name="optradio">10
-                                            </label>
-                                        </div>
-                                        <h6>0 sería un control escaso y 10 máximo control, conocer las causas y poder evitarlo</h6>
-                                    </blockquote>
-                                </div>
-                            </div>
-
-                                <!-- Cuarta pregunta -->
-                            <div class="bg-info text-center">
-                                <div class="card-block">
-                                    <blockquote class="card-blockquote">
-                                        <p>4 - ¿Cree que la dieta, ejercicio físico, tratamiento con pastillas o pinchado son útiles para controlar la diabetes?</p>
-                                        <div class="form-group">
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-0" value=0 name="optradio">0
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-1" value=1 name="optradio">1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-2" value=2 name="optradio">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-3" value=3 name="optradio">3
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-4" value=4 name="optradio">4
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-5" value=5 name="optradio">5
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-6" value=6 name="optradio">6
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-7" value=7 name="optradio">7
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-8" value=8 name="optradio">8
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-9" value=9 name="optradio">9
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p4-10" value=10 name="optradio">10
-                                            </label>
-                                        </div>
-                                        <h6>0 no cree que sea útil y 10 si cree que es útil</h6>
-                                    </blockquote>
-                                </div>
-                            </div>
-
-                                <!-- Quinta pregunta -->
-                            <div class="bg-info text-center">
-                                <div class="card-block">
-                                    <blockquote class="card-blockquote">
-                                        <p>5 - ¿Nota molestias o síntomas relacionados directamente con la Diabetes?</p>
-                                        <div class="form-group">
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-0" value=0 name="optradio">0
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-1" value=1 name="optradio">1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-2" value=2 name="optradio">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-3" value=3 name="optradio">3
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-4" value=4 name="optradio">4
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-5" value=5 name="optradio">5
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-6" value=6 name="optradio">6
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-7" value=7 name="optradio">7
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-8" value=8 name="optradio">8
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-9" value=9 name="optradio">9
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p5-10" value=10 name="optradio">10
-                                            </label>
-                                        </div>
-                                        <h6>0 ningún síntoma en la actualidad y 10 todos los días tengo síntomas (por complicaciones o no)</h6>
-                                    </blockquote>
-                                </div>
-                            </div>
-
-                                <!-- Sexta pregunta -->
-                            <div class="bg-info text-center">
-                                <div class="card-block">
-                                    <blockquote class="card-blockquote">
-                                        <p>6 - ¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo?</p>
-                                        <div class="form-group">
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-0" value=0 name="optradio">0
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-1" value=1 name="optradio">1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-2" value=2 name="optradio">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-3" value=3 name="optradio">3
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-4" value=4 name="optradio">4
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-5" value=5 name="optradio">5
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-6" value=6 name="optradio">6
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-7" value=7 name="optradio">7
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-8" value=8 name="optradio">8
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-9" value=9 name="optradio">9
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p6-10" value=10 name="optradio">10
-                                            </label>
-                                        </div>
-                                        <h6>0 la conozco muy poco o nada y 10 la conozco bien</h6>
-                                    </blockquote>
-                                </div>
-                            </div>
-
-                                <!-- Septima pregunta -->
-                            <div class="bg-info text-center">
-                                <div class="card-block">
-                                    <blockquote class="card-blockquote">
-                                        <p>7 - ¿Tener Diabetes me afecta emocionalmente? Me preocupa</p>
-                                        <div class="form-group">
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-0" value=0 name="optradio">0
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-1" value=1 name="optradio">1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-2" value=2 name="optradio">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-3" value=3 name="optradio">3
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-4" value=4 name="optradio">4
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-5" value=5 name="optradio">5
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-6" value=6 name="optradio">6
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-7" value=7 name="optradio">7
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-8" value=8 name="optradio">8
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-9" value=9 name="optradio">9
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p7-10" value=10 name="optradio">10
-                                            </label>
-                                        </div>
-                                        <h6>0 no me afecta nada y 10 me afecta mucho</h6>
-                                    </blockquote>
-                                </div>
-                            </div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -270,7 +48,7 @@
                                         <h5>DNI/NIF: @paciente.nif</h5>
                                     </div>
                                     <div class="col">
-                                        <h5>Número S.S: @paciente.ss</h5>
+                                        <h5>Nº S.S: @paciente.ss</h5>
                                         <h5>Edad: @paciente.edad</h5>
                                         <h5>Sexo: @paciente.sexo</h5>
                                     </div>
@@ -281,7 +59,6 @@
 
                 </div>
             </div>
-        </form>
         </div>
     </body>
 </html>

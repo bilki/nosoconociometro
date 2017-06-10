@@ -4,7 +4,7 @@ import javax.inject.Inject
 
 import controllers.WebJarAssets
 import org.nosoconociometro.engine.RulesEngine
-import org.nosoconociometro.models.{Patient, Tip, TipLevel}
+import org.nosoconociometro.models.{Answer, Patient, Tip, TipLevel}
 
 import play.api.mvc.{Action, Controller}
 
@@ -18,7 +18,9 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
     "000123456789",
     "12345678X",
     35,
-    "Mujer")
+    "Mujer",
+    6,
+    20)
 
   val patient2 = Patient(
     2,
@@ -27,7 +29,9 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
     "000987654321",
     "87654321A",
     46,
-    "Varón")
+    "Varón",
+    8.5,
+    32)
 
   def index(patient: Int) = Action { implicit request =>
     val p = patient match {
@@ -42,21 +46,21 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
 
     val form = request.body.asFormUrlEncoded.getOrElse(Map.empty)
 
+    val patientInstance = patient match {
+      case 1 => patient1
+      case 2 => patient2
+    }
+
     if (form.isEmpty) {
       BadRequest("")
     } else {
 
       val patientHistory: Any = "History"
-      val tips: Seq[Tip] = Seq()
+      val answers: Seq[Answer] = form.toSeq.map { case (s, l) => Answer(s.toInt, l.head.toInt) }
 
-      Ok(org.nosoconociometro.views.html.results(webJar, patient1, patientHistory, tips))
+      val tips = RulesEngine.run(engineMarker, answers)
+
+      Ok(org.nosoconociometro.views.html.results(webJar, patientInstance, patientHistory, answers, tips))
     }
-  }
-
-  def results(patient: Int) = Action { implicit request =>
-    val patientHistory: Any = "History"
-    val tips: Seq[Tip] = Seq()
-
-    Ok(org.nosoconociometro.views.html.results(webJar, patient1, patientHistory, tips))
   }
 }

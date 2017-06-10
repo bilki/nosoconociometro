@@ -1,7 +1,9 @@
+@import org.nosoconociometro.models.Answer
 @(
     webJarAssets: WebJarAssets,
     paciente: org.nosoconociometro.models.Patient,
     history: Any,
+    answers: Seq[org.nosoconociometro.models.Answer],
     tips: Seq[org.nosoconociometro.models.Tip]
 )
 
@@ -21,6 +23,10 @@
     <div class="alert @tipClass(tipId)" role="alert">@{tips.find(_.id == tipId).map(_.tipFull).getOrElse("Ningún consejo disponible")}</div>
 }
 
+@answerValue(answer: Int) = {
+    <strong>@answers.find(_.id == answer).map(_.value.toString).getOrElse("Pregunta no contestada")</strong>
+}
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -38,7 +44,7 @@
             </div>
         </nav>
         <div class="container">
-            <form class="form-horizontal" method="post" action="/survey/1">
+            <form class="form-horizontal" method="post" action="/survey/@paciente.id">
                 <div class="row">
                     <div class="col-md-9" role="main">
                         <div class="bs-docs-section">
@@ -47,7 +53,7 @@
                             <div class="bg-info text-center">
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
-                                        <p>1 - ¿En qué medida las consecuencias de la Diabetes afecta mi vida?</p>
+                                        <p>1 - ¿En qué medida las consecuencias de la Diabetes afecta mi vida? @answerValue(1)</p>
                                         @tipHtml(1)
                                     </blockquote>
                                 </div>
@@ -57,7 +63,7 @@
                             <div class="bg-info text-center">
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
-                                        <p>2 - ¿Cuánto tiempo cree que duran las consecuencias de la Diabetes?</p>
+                                        <p>2 - ¿Cuánto tiempo cree que duran las consecuencias de la Diabetes? @answerValue(2)</p>
                                         @tipHtml(2)
                                     </blockquote>
                                 </div>
@@ -67,7 +73,7 @@
                             <div class="bg-info text-center">
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
-                                        <p>3 - ¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)?</p>
+                                        <p>3 - ¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)? @answerValue(3)</p>
                                         @tipHtml(3)
                                     </blockquote>
                                 </div>
@@ -77,7 +83,7 @@
                             <div class="bg-info text-center">
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
-                                        <p>4 - ¿Cree que la dieta, ejercicio físico, tratamiento con pastillas o pinchado son útiles para controlar la diabetes?</p>
+                                        <p>4 - ¿Cree que la dieta, ejercicio físico, tratamiento con pastillas o pinchado son útiles para controlar la diabetes? @answerValue(4)</p>
                                         @tipHtml(4)
                                     </blockquote>
                                 </div>
@@ -87,7 +93,7 @@
                             <div class="bg-info text-center">
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
-                                        <p>5 - ¿Nota molestias o síntomas relacionados directamente con la Diabetes?</p>
+                                        <p>5 - ¿Nota molestias o síntomas relacionados directamente con la Diabetes? @answerValue(5)</p>
                                         @tipHtml(5)
                                     </blockquote>
                                 </div>
@@ -97,7 +103,7 @@
                             <div class="bg-info text-center">
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
-                                        <p>6 - ¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo?</p>
+                                        <p>6 - ¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo? @answerValue(6)</p>
                                         @tipHtml(6)
                                     </blockquote>
                                 </div>
@@ -107,7 +113,7 @@
                             <div class="bg-info text-center">
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
-                                        <p>7 - ¿Tener Diabetes me afecta emocionalmente? Me preocupa</p>
+                                        <p>7 - ¿Tener Diabetes me afecta emocionalmente? ¿Me preocupa? @answerValue(7)</p>
                                         @tipHtml(7)
                                     </blockquote>
                                 </div>
@@ -116,7 +122,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="row">
-                            <div class="bg-info text-left">
+                            <div class="bg-warning text-left">
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
                                         <h4>Datos del paciente</h4>
@@ -130,15 +136,14 @@
                                             <h5>Edad: @paciente.edad</h5>
                                             <h5>Sexo: @paciente.sexo</h5>
                                         </div>
+                                        <h4>Valores historia clínica</h4>
+                                        <div class="col">
+                                            <h5>HbA1c: @paciente.hg %</h5>
+                                            <h5>IMC: @paciente.imc</h5>
+                                        </div>
                                     </blockquote>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="alert alert-success" role="alert">...</div>
-                            <div class="alert alert-info" role="alert">...</div>
-                            <div class="alert alert-warning" role="alert">...</div>
-                            <div class="alert alert-danger" role="alert">...</div>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
 
 (defrule question1green
  "En que medida las consecuencias de la diabetes afecta mi vida - OK"
- (Answer {id == 1 && value >= 0 && value <= 3})
+ (Answer {id == 1 && value >= 7 && value <= 10})
  =>
  (add (new Tip 1 "El paciente está bien" "El paciente es proactivo/emponderable" "tipclear"))
 )
@@ -18,7 +18,7 @@
 
 (defrule question1danger
  "En que medida las consecuencias de la diabetes afecta mi vida - DANGER"
- (Answer {id == 1 && value >= 7 && value <= 10})
+ (Answer {id == 1 && value >= 0 && value <= 3})
  =>
  (add (new Tip 1 "El paciente está mal" "Posibles efectos hiper/hipo, complicado cambiar, no olvidar explorar y preguntar" "tipdanger"))
 )

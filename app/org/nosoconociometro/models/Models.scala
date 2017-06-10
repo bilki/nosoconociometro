@@ -9,7 +9,10 @@ case class Patient(
     ss: String,
     nif: String,
     edad: Int,
-    sexo: String)
+    sexo: String,
+    hg: Double,
+    imc: Double
+)
 
 sealed trait TipLevel extends EnumEntry
 object TipLevel extends Enum[TipLevel] {

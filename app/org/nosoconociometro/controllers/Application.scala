@@ -3,11 +3,13 @@ package org.nosoconociometro.controllers
 import javax.inject.Inject
 
 import controllers.WebJarAssets
-import org.nosoconociometro.models.Models.{Patient, TipLevel}
+import org.nosoconociometro.engine.RulesEngine
+import org.nosoconociometro.models.{Patient, TipLevel}
 
 import play.api.mvc.{Action, Controller}
 
 class Application @Inject()(webJar: WebJarAssets) extends Controller {
+  val engineMarker = RulesEngine.load("rules.clp")
 
   val patient1 = Patient(
     "Laura",

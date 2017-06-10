@@ -3,7 +3,13 @@ package org.nosoconociometro.models
 import enumeratum._
 
 object Models {
-  case class Patient(name: String, age: Int)
+  case class Patient(
+      name: String,
+      apellidos: String,
+      ss: String,
+      nif: String,
+      edad: Int,
+      sexo: String)
 
   sealed trait TipLevel extends EnumEntry
   object TipLevel extends Enum[TipLevel] {

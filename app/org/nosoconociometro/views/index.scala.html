@@ -1,18 +1,26 @@
-@(webJarAssets: WebJarAssets)
+@(webJarAssets: WebJarAssets, paciente: org.nosoconociometro.models.Models.Patient)
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <title>Cuestionario</title>
         <link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
+        <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Rammetto+One">
     </head>
     <body>
 
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p class="navbar-text" style="font-family: 'Rammetto One', cursive; text-align: right; margin-right: 20px">NOSOCONOCIOMETRO</p>
+                </div>
+            </div>
+        </nav>
         <div class="container">
             <div class="row">
                 <div class="col-md-9" role="main">
                     <div class="bs-docs-section">
                             <!-- Primera pregunta -->
-                        <div class="bg-success text-center">
+                        <div class="bg-info text-center">
                             <div class="card-block">
                                 <blockquote class="card-blockquote">
                                     <p>1 - ¿En qué medida las consecuencias de la Diabetes afecta mi vida?</p>
@@ -51,12 +59,13 @@
                                             <input type="radio" name="optradio">10
                                         </label>
                                     </form>
+                                    <h6>0 sería no me afecta y 10 me afecta mucho</h6>
                                 </blockquote>
                             </div>
                         </div>
 
                             <!-- Segunda pregunta -->
-                        <div class="bg-warning text-center">
+                        <div class="bg-info text-center">
                             <div class="card-block">
                                 <blockquote class="card-blockquote">
                                     <p>2 - ¿Cuánto tiempo cree que duran las consecuencias de la Diabetes?</p>
@@ -95,12 +104,13 @@
                                             <input type="radio" name="optradio">10
                                         </label>
                                     </form>
+                                    <h6>0 sería dura de forma momentánea y 10 dura para siempre</h6>
                                 </blockquote>
                             </div>
                         </div>
 
                             <!-- Tercera pregunta -->
-                        <div class="bg-primary text-center">
+                        <div class="bg-info text-center">
                             <div class="card-block">
                                 <blockquote class="card-blockquote">
                                     <p>3 - ¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)?</p>
@@ -139,6 +149,7 @@
                                             <input type="radio" name="optradio">10
                                         </label>
                                     </form>
+                                    <h6>0 sería un control escaso y 10 máximo control, conocer las causas y poder evitarlo</h6>
                                 </blockquote>
                             </div>
                         </div>
@@ -183,12 +194,13 @@
                                             <input type="radio" name="optradio">10
                                         </label>
                                     </form>
+                                    <h6>0 no cree que sea útil y 10 si cree que es útil</h6>
                                 </blockquote>
                             </div>
                         </div>
 
                             <!-- Quinta pregunta -->
-                        <div class="bg-danger text-center">
+                        <div class="bg-info text-center">
                             <div class="card-block">
                                 <blockquote class="card-blockquote">
                                     <p>5 - ¿Nota molestias o síntomas relacionados directamente con la Diabetes?</p>
@@ -227,12 +239,13 @@
                                             <input type="radio" name="optradio">10
                                         </label>
                                     </form>
+                                    <h6>0 ningún síntoma en la actualidad y 10 todos los días tengo síntomas (por complicaciones o no)</h6>
                                 </blockquote>
                             </div>
                         </div>
 
                             <!-- Sexta pregunta -->
-                        <div class="bg-success card-danger text-center">
+                        <div class="bg-info text-center">
                             <div class="card-block">
                                 <blockquote class="card-blockquote">
                                     <p>6 - ¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo?</p>
@@ -271,12 +284,13 @@
                                             <input type="radio" name="optradio">10
                                         </label>
                                     </form>
+                                    <h6>0 la conozco muy poco o nada y 10 la conozco bien</h6>
                                 </blockquote>
                             </div>
                         </div>
 
                             <!-- Septima pregunta -->
-                        <div class="bg-warning card-danger text-center">
+                        <div class="bg-info text-center">
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
                                         <p>7 - ¿Tener Diabetes me afecta emocionalmente? Me preocupa</p>
@@ -315,9 +329,29 @@
                                                 <input type="radio" name="optradio">10
                                             </label>
                                         </form>
+                                        <h6>0 no me afecta nada y 10 me afecta mucho</h6>
                                     </blockquote>
                                 </div>
                             </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-warning text-left">
+                        <div class="card-block">
+                            <blockquote class="card-blockquote">
+                                <h4>Datos del paciente</h4>
+                                <div class="col">
+                                    <h5>Nombre: @paciente.name</h5>
+                                    <h5>Apellidos: @paciente.apellidos</h5>
+                                    <h5>DNI/NIF: @paciente.nif</h5>
+                                </div>
+                                <div class="col">
+                                    <h5>Nº S.S: @paciente.ss</h5>
+                                    <h5>Edad: @paciente.edad</h5>
+                                    <h5>Sexo: @paciente.sexo</h5>
+                                </div>
+                            </blockquote>
+                        </div>
                     </div>
                 </div>
             </div>

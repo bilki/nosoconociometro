@@ -1,6 +1,6 @@
 ######
 ## nosoconociometro routes
 
-GET     /                                 org.nosoconociometro.controllers.Application.index
+GET     /:patient                         org.nosoconociometro.controllers.Application.index(patient: Int)
 
 GET     /webjars/*file                    controllers.WebJarAssets.at(file)

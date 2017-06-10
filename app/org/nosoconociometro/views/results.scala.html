@@ -129,17 +129,23 @@
                                         <div class="col">
                                             <h5>Nombre: @paciente.name</h5>
                                             <h5>Apellidos: @paciente.apellidos</h5>
-                                            <h5>DNI/NIF: @paciente.nif</h5>
                                         </div>
                                         <div class="col">
-                                            <h5>Nº S.S: @paciente.ss</h5>
                                             <h5>Edad: @paciente.edad</h5>
                                             <h5>Sexo: @paciente.sexo</h5>
                                         </div>
-                                        <h4>Valores historia clínica</h4>
+
+                                        <h4 style="margin-top: 20px;">Valores historia clínica</h4>
                                         <div class="col">
                                             <h5>HbA1c: @paciente.hg %</h5>
                                             <h5>IMC: @paciente.imc</h5>
+                                            <h5>Tratamientos actuales:
+                                                <ul>
+                                                @for(tratamiento <- paciente.tratamientos) {
+                                                    <li>@tratamiento</li>
+                                                }
+                                                </ul>
+                                            </h5>
                                         </div>
                                     </blockquote>
                                 </div>

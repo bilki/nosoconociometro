@@ -11,7 +11,8 @@ case class Patient(
     edad: Int,
     sexo: String,
     hg: Double,
-    imc: Double
+    imc: Double,
+    tratamientos: Seq[String]
 )
 
 sealed trait TipLevel extends EnumEntry

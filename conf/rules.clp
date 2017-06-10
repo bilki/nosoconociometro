@@ -4,9 +4,9 @@
 
 (defrule question1green
  "En que medida las consecuencias de la diabetes afecta mi vida - OK"
- (Answer {id == 1 && value >= 7 && value <= 10})
+ (Answer {id == 1 && value >= 0 && value <= 3})
  =>
- (add (new Tip 1 "El paciente está bien" "El paciente es proactivo/emponderable" "tipclear"))
+ (add (new Tip 1 "El paciente está bien" "El paciente es proactivo/empoderable" "tipclear"))
 )
 
 (defrule question1neutral
@@ -18,7 +18,7 @@
 
 (defrule question1danger
  "En que medida las consecuencias de la diabetes afecta mi vida - DANGER"
- (Answer {id == 1 && value >= 0 && value <= 3})
+ (Answer {id == 1 && value >= 7 && value <= 10})
  =>
  (add (new Tip 1 "El paciente está mal" "Posibles efectos hiper/hipo, complicado cambiar, no olvidar explorar y preguntar" "tipdanger"))
 )
@@ -53,7 +53,7 @@
 
 (defrule question3neutral
  "¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)? - NEUTRAL"
- (Answer {id == 3 && value >=4 && value <= 6})
+ (Answer {id == 3 && value >= 4 && value <= 6})
  =>
  (add (new Tip 3 "Respuesta rara" "Esta respuesta no es coherente" "tipneutral"))
 )
@@ -62,7 +62,7 @@
  "¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)? - DANGER"
  (Answer {id == 4 && value >= 0 && value <= 3})
  =>
- (add (new Tip 3 "Necesita educación" "Empezar de cero, necesita educación sobre hipo e hiper glucemia, enseñar a usar el glucómetro"))
+ (add (new Tip 3 "Necesita educación" "Empezar de cero, necesita educación sobre hipo e hiper glucemia, enseñar a usar el glucómetro" "tipdanger"))
 )
 
 (defrule question4green
@@ -88,9 +88,9 @@
 
 (defrule question5green
  "¿Nota molestias o síntomas relacionados directamente con la Diabetes? - OK"
- (Answer {id == 5 && value >= 0 && value <=3})
+ (Answer {id == 5 && value >= 0 && value <= 3})
  =>
- (add (new Tip 5 "Posible proactivo" "Imponderable" "tipclear"))
+ (add (new Tip 5 "Posible proactivo" "Empoderable" "tipclear"))
 )
 
 (defrule question5neutal
@@ -102,7 +102,7 @@
 
 (defrule question5danger
  "¿Nota molestias o síntomas relacionados directamente con la Diabetes? - DANGER"
- (Answer {id == 5 && value >= 7 && value <=10})
+ (Answer {id == 5 && value >= 7 && value <= 10})
  =>
  (add (new Tip 5 "Preguntar posibles efectos secundarios" "Hiper o hipo glucemia no olvidar explorar y preguntar por complicaciones, complicado cambio" "tipdanger"))
 )

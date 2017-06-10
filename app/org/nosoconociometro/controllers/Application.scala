@@ -17,10 +17,15 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
     "Pérez Sánchez",
     "000123456789",
     "12345678X",
-    35,
+    48,
     "Mujer",
-    6,
-    20)
+    8.2,
+    36,
+    Seq(
+      "Metformina 850: 1-0-1",
+      "Empaglifozina 50: 1-0-1",
+      "Pioglitazona 30: 1-0-0"
+    ))
 
   val patient2 = Patient(
     2,
@@ -31,7 +36,12 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
     46,
     "Varón",
     8.5,
-    32)
+    32,
+    Seq(
+      "Metformina 850: 1-0-1",
+      "Canaglifozina 50: 1-0-1",
+      "Pioglitazona 30: 1-0-0"
+    ))
 
   def index(patient: Int) = Action { implicit request =>
     val p = patient match {

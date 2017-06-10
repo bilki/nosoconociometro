@@ -44,6 +44,27 @@
  (add (new Tip 2 "Empezar de cero" "El paciente no entiende su enfermedad, aplicar reeducación en todos los aspectos" "tipdanger"))
 )
 
+(defrule question3green
+ "¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)? - OK"
+ (Answer {id == 3 && value >= 7 && value <= 10})
+ =>
+ (add (new Tip 3 "Niveles de insulina adecuados" "Enhorabuena, sigue así" "tipclear"))
+)
+
+(defrule question3neutral
+ "¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)? - NEUTRAL"
+ (Answer {id == 3 && value >=4 && value <= 6})
+ =>
+ (add (new Tip 3 "Respuesta rara" "Esta respuesta no es coherente" "tipneutral"))
+)
+
+(defrule question3danger
+ "¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)? - DANGER"
+ (Answer {id == 4 && value >= 0 && value <= 3})
+ =>
+ (add (new Tip 3 "Necesita educación" "Empezar de cero, necesita educación sobre hipo e hiper glucemia, enseñar a usar el glucómetro"))
+)
+
 (defrule question4green
  "Cree que la dieta, ejercicio fisico, tratamiento con pastillas o pinchado son utiles para controlar la diabetes - OK"
  (Answer {id == 4 && value >= 7 && value <= 10})
@@ -63,4 +84,67 @@
  (Answer {id == 4 && value >= 0 && value <= 3})
  =>
  (add (new Tip 4 "Empezar de cero" "El paciente no entiende su enfermedad, aplicar reeducación en todos los aspectos" "tipdanger"))
+)
+
+(defrule question5green
+ "¿Nota molestias o síntomas relacionados directamente con la Diabetes? - OK"
+ (Answer {id == 5 && value >= 0 && value <=3})
+ =>
+ (add (new Tip 5 "Posible proactivo" "Imponderable" "tipclear"))
+)
+
+(defrule question5neutal
+ "¿Nota molestias o síntomas relacionados directamente con la Diabetes? - NEUTRAL"
+ (Answer {id == 5 && value >= 4 && value <= 6})
+ =>
+ (add (new Tip 5 "Respuesta rara" "Esta respuesta no es coherente" "tipneutral"))
+)
+
+(defrule question5danger
+ "¿Nota molestias o síntomas relacionados directamente con la Diabetes? - DANGER"
+ (Answer {id == 5 && value >= 7 && value <=10})
+ =>
+ (add (new Tip 5 "Preguntar posibles efectos secundarios" "Hiper o hipo glucemia no olvidar explorar y preguntar por complicaciones, complicado cambio" "tipdanger"))
+)
+
+(defrule question6green
+ "¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo? - OK"
+ (Answer {id == 6 && value >= 6 && value <= 10})
+ =>
+ (add (new Tip 6 "Enhorabuena, paciente subsidiario de cambio o proactivo" "Sigue así" "tipclear"))
+)
+
+(defrule question6neutral
+ "¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo? - NEUTRAL"
+ (Answer {id == 6 && value >= 4 && value <= 6})
+ =>
+ (add (new Tip 6 "Respuesta rara" "Esta respuesta no es coherente" "tipneutral"))
+)
+
+(defrule question6danger
+ "¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo? - DANGER"
+ (Answer {id == 6 && value >= 0 && value <= 3})
+ =>
+ (add (new Tip 6 "Empezar de cero, que no entiende" "Educar conocimiento de la enfermedad, dieta, ejercicio físico y por la medicación" "tipdanger"))
+)
+
+(defrule question7green
+ "¿Tener Diabetes me afecta emocionalmente? Me preocupa - OK"
+ (Answer {id == 7 && value >= 0 && value <= 3})
+ =>
+ (add (new Tip 7 "Paciente estable" "La enfermedad estará presente toda su vida pero no es preocupante, se muestra proactivo y empoderado" "tipclear"))
+)
+
+(defrule question7neutral
+ "¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo? - NEUTRAL"
+ (Answer {id == 7 && value >= 4 && value <= 6})
+ =>
+ (add (new Tip 7 "Respuesta rara" "Esta respuesta no es coherente" "tipneutral"))
+)
+
+(defrule question7danger
+ "¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo? - DANGER"
+ (Answer {id == 7 && value >= 7 && value <= 10})
+ =>
+ (add (new Tip 7 "El paciente está mal" "Posibles efectos secundarios, hiper o hipo glucemia, muestra complicaciones, el cambio es complicado" "tipdanger"))
 )

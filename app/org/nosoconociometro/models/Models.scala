@@ -14,7 +14,7 @@ sealed trait TipLevel extends EnumEntry
 object TipLevel extends Enum[TipLevel] {
   val values = findValues
 
-  case object TipWarning extends TipLevel
+  case object TipDanger extends TipLevel
   case object TipNeutral extends TipLevel
   case object TipClear extends TipLevel
 }

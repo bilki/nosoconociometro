@@ -4,7 +4,7 @@ import javax.inject.Inject
 
 import controllers.WebJarAssets
 import org.nosoconociometro.engine.RulesEngine
-import org.nosoconociometro.models.{Patient, TipLevel}
+import org.nosoconociometro.models.{Patient, Tip, TipLevel}
 
 import play.api.mvc.{Action, Controller}
 
@@ -47,7 +47,7 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
     } else {
 
       val patientHistory: Any = "History"
-      val tips: Seq[TipLevel] = Seq()
+      val tips: Seq[Tip] = Seq()
 
       Ok(org.nosoconociometro.views.html.results(webJar, patient1, patientHistory, tips))
     }
@@ -55,7 +55,7 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
 
   def results(patient: Int) = Action { implicit request =>
     val patientHistory: Any = "History"
-    val tips: Seq[TipLevel] = Seq()
+    val tips: Seq[Tip] = Seq()
 
     Ok(org.nosoconociometro.views.html.results(webJar, patient1, patientHistory, tips))
   }

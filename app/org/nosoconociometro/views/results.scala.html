@@ -2,16 +2,26 @@
     webJarAssets: WebJarAssets,
     paciente: org.nosoconociometro.models.Patient,
     history: Any,
-    tips: Seq[org.nosoconociometro.models.TipLevel]
+    tips: Seq[org.nosoconociometro.models.Tip]
 )
 
+@tipClass(tipId: Int) = @{
+    import org.nosoconociometro.models.TipLevel._
 
-<!DOCTYPE html>
-
-@retrieveTip(i: Int): org.nosoconociometro.models.TipLevel = {
-    tips.find(t => t.id == 1)
+    tips.find(_.id == tipId).map { tip =>
+        tip.tipLevel match {
+            case TipDanger => "alert-danger"
+            case TipNeutral => "alert-warning"
+            case TipClear => "alert-success"
+        }
+    }.getOrElse("alert-info")
 }
 
+@tipHtml(tipId: Int) = {
+    <div class="alert @tipClass(tipId)" role="alert">@{tips.find(_.id == tipId).map(_.tipFull).getOrElse("Ningún consejo disponible")}</div>
+}
+
+<!DOCTYPE html>
 <html lang="es">
     <head>
         <title>Resultados</title>
@@ -38,14 +48,7 @@
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
                                         <p>1 - ¿En qué medida las consecuencias de la Diabetes afecta mi vida?</p>
-                                        <div class="alert @{
-                                            val tip = tips.find(t => t.id == 1).get
-                                            val tipLevel = tip match {
-                                                case org.nosoconociometro.models.TipLevel.TipDanger => "alert-clear"
-                                                case org.nosoconociometro.models.TipLevel.TipNeutral => "alert-warning"
-                                                case org.nosoconociometro.models.TipLevel.TipClear => "alert-success"
-                                            }
-                                        }" role="alert">@{tips.find(_.id == 1).get.full}</div>
+                                        @tipHtml(1)
                                     </blockquote>
                                 </div>
                             </div>
@@ -55,7 +58,7 @@
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
                                         <p>2 - ¿Cuánto tiempo cree que duran las consecuencias de la Diabetes?</p>
-                                        <h6>0 sería dura de forma momentánea y 10 dura para siempre</h6>
+                                        @tipHtml(2)
                                     </blockquote>
                                 </div>
                             </div>
@@ -65,7 +68,7 @@
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
                                         <p>3 - ¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)?</p>
-                                        <h6>0 sería un control escaso y 10 máximo control, conocer las causas y poder evitarlo</h6>
+                                        @tipHtml(3)
                                     </blockquote>
                                 </div>
                             </div>
@@ -75,7 +78,7 @@
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
                                         <p>4 - ¿Cree que la dieta, ejercicio físico, tratamiento con pastillas o pinchado son útiles para controlar la diabetes?</p>
-                                        <h6>0 no cree que sea útil y 10 si cree que es útil</h6>
+                                        @tipHtml(4)
                                     </blockquote>
                                 </div>
                             </div>
@@ -85,7 +88,7 @@
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
                                         <p>5 - ¿Nota molestias o síntomas relacionados directamente con la Diabetes?</p>
-                                        <h6>0 ningún síntoma en la actualidad y 10 todos los días tengo síntomas (por complicaciones o no)</h6>
+                                        @tipHtml(5)
                                     </blockquote>
                                 </div>
                             </div>
@@ -95,7 +98,7 @@
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
                                         <p>6 - ¿Hasta qué punto comprende y conoce la Diabetes y sus consecuencias a largo plazo?</p>
-                                        <h6>0 la conozco muy poco o nada y 10 la conozco bien</h6>
+                                        @tipHtml(6)
                                     </blockquote>
                                 </div>
                             </div>
@@ -105,7 +108,7 @@
                                 <div class="card-block">
                                     <blockquote class="card-blockquote">
                                         <p>7 - ¿Tener Diabetes me afecta emocionalmente? Me preocupa</p>
-                                        <h6>0 no me afecta nada y 10 me afecta mucho</h6>
+                                        @tipHtml(7)
                                     </blockquote>
                                 </div>
                             </div>

@@ -1,8 +1,10 @@
 ######
 ## nosoconociometro routes
 
+GET     /webjars/*file                    controllers.WebJarAssets.at(file)
+
 GET     /:patient                         org.nosoconociometro.controllers.Application.index(patient: Int)
 
-GET     /webjars/*file                    controllers.WebJarAssets.at(file)
+GET     /results/:patient                 org.nosoconociometro.controllers.Application.results(patient: Int)
 
 POST    /survey/:patient                  org.nosoconociometro.controllers.Application.receiveSurvey(patient: Int)

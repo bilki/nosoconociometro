@@ -50,4 +50,11 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
       Ok(org.nosoconociometro.views.html.results(webJar, patient1, patientHistory, tips))
     }
   }
+
+  def results(patient: Int) = Action { implicit request =>
+    val patientHistory: Any = "History"
+    val tips: Seq[TipLevel] = Seq()
+
+    Ok(org.nosoconociometro.views.html.results(webJar, patient1, patientHistory, tips))
+  }
 }

@@ -3,7 +3,7 @@ package org.nosoconociometro.controllers
 import javax.inject.Inject
 
 import controllers.WebJarAssets
-import org.nosoconociometro.models.Models.Patient
+import org.nosoconociometro.models.Models.{Patient, TipLevel}
 
 import play.api.mvc.{Action, Controller}
 
@@ -32,5 +32,20 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
       case _ => patient1
     }
     Ok(org.nosoconociometro.views.html.index(webJar, p))
+  }
+
+  def receiveSurvey(patient: Int) = Action { implicit request =>
+
+    val form = request.body.asFormUrlEncoded.getOrElse(Map.empty)
+
+    if (form.isEmpty) {
+      BadRequest("")
+    } else {
+
+      val patientHistory: Any = "History"
+      val tips: Seq[TipLevel] = Seq()
+
+      Ok(org.nosoconociometro.views.html.results(webJar, patient1, patientHistory, tips))
+    }
   }
 }

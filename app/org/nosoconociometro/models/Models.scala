@@ -3,6 +3,7 @@ package org.nosoconociometro.models
 import enumeratum._
 
 case class Patient(
+    id: Int,
     name: String,
     apellidos: String,
     ss: String,

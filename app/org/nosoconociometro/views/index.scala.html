@@ -22,97 +22,15 @@
             <div class="row">
                 <div class="col-md-9" role="main">
                     <div class="bs-docs-section">
+                        <form id="questions" action="/survey/@paciente.id" method="post">
+                            <fieldset>
+                                @question(1, "1 - ¿En qué medida las consecuencias de la Diabetes afecta mi vida?", "0 no me afecta y 10 me afecta mucho")
+                                @question(2, "2 - ¿Cuánto tiempo cree que duran las consecuencias de la Diabetes?", "0 temporalmente y 10 dura para siempre")
+                                @question(3, "3 - ¿Qué grado de control tiene sobre las posibles consecuencias que producen las subidas y bajadas de la glucemia (azúcar en sangre)?", "0 sería un control escaso y 10 máximo control")
+                            </fieldset>
 
-
-                            <!-- Primera pregunta -->
-                            <div class="bg-info text-center">
-                                <div class="card-block">
-                                    <blockquote class="card-blockquote">
-                                        <p>1 - ¿En qué medida las consecuencias de la Diabetes afecta mi vida?</p>
-                                        <div class="form-group">
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-0" value=0 name="optradio">0
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-1" value=1 name="optradio">1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-2" value=2 name="optradio">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-3" value=3 name="optradio">3
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-4" value=4 name="optradio">4
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-5" value=5 name="optradio">5
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-6" value=6 name="optradio">6
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-7" value=7 name="optradio">7
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-8" value=8 name="optradio">8
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-9" value=9 name="optradio">9
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p1-10" value=10 name="optradio">10
-                                            </label>
-                                        </div>
-                                        <h6>0 sería no me afecta y 10 me afecta mucho</h6>
-                                    </blockquote>
-                                </div>
-                            </div>
-
-                                <!-- Segunda pregunta -->
-                            <div class="bg-info text-center">
-                                <div class="card-block">
-                                    <blockquote class="card-blockquote">
-                                        <p>2 - ¿Cuánto tiempo cree que duran las consecuencias de la Diabetes?</p>
-                                        <div class="form-group">
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-0" value=0 name="optradio">0
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-1" value=1 name="optradio">1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-2" value=2 name="optradio">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-3" value=3 name="optradio">3
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-4" value=4 name="optradio">4
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-5" value=5 name="optradio">5
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-6" value=6 name="optradio">6
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-7" value=7 name="optradio">7
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-8" value=8 name="optradio">8
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-9" value=9 name="optradio">9
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="p2-10" value=10 name="optradio">10
-                                            </label>
-                                        </div>
-                                        <h6>0 sería dura de forma momentánea y 10 dura para siempre</h6>
-                                    </blockquote>
-                                </div>
-                            </div>
+                            <input type="submit" class="btn btn-primary btn-lg" style="margin-left: 100px;" role="button" value="Enviar">
+                        </form>
 
                                 <!-- Tercera pregunta -->
                             <div class="bg-info text-center">
@@ -360,9 +278,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <input type="submit" class="btn btn-primary btn-lg" style="margin-left: 100px;" href=#" role="button"></input>
-                    </div>
+
                 </div>
             </div>
         </form>

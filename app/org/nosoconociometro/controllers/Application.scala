@@ -12,6 +12,7 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
   val engineMarker = RulesEngine.load("rules.clp")
 
   val patient1 = Patient(
+    1,
     "Laura",
     "Pérez Sánchez",
     "000123456789",
@@ -20,6 +21,7 @@ class Application @Inject()(webJar: WebJarAssets) extends Controller {
     "Mujer")
 
   val patient2 = Patient(
+    2,
     "Francisco",
     "Serrano García",
     "000987654321",
